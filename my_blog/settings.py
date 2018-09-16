@@ -16,27 +16,27 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 #PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'youremail@gmail.com' #my gmail username
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD') #my gmail password
+EMAIL_HOST_USER = 'pradip.klg74@gmail.com' #my gmail username
+EMAIL_HOST_PASSWORD = 'Sanskruti@1807' #my gmail password
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = "Pradip <pradip.klg74@gmail.com>"
+#DEFAULT_FROM_EMAIL = "Pradip <pradip.klg74@gmail.com>"
 
 
-ADMINS = [('Pradip', EMAIL_HOST_USER)]
-MANAGERS = ADMINS
+#ADMINS = [('Pradip', EMAIL_HOST_USER)]
+#MANAGERS = ADMINS
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY','6!kf-b=@%9u8xy=5wts_&mrjuw2cx!+gxdi-)ivn4-2arq8_)*')
+SECRET_KEY ='6!kf-b=@%9u8xy=5wts_&mrjuw2cx!+gxdi-)ivn4-2arq8_)*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['myblogger-django.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -54,8 +54,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    #'django.middleware.security.SecurityMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -94,9 +95,9 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+#import dj_database_url
+#db_from_env = dj_database_url.config()
+#DATABASES['default'].update(db_from_env)
 #DATABASES['default']['CONN_MAX_AGE'] = 500
 
 # Password validation
@@ -137,24 +138,25 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-STATIC_ROOT = os.path.join(BASE_DIR, "live-static-files", "static-root")
+#STATIC_ROOT = os.path.join(BASE_DIR, "live-static-files", "static-root")
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#TATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-#MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 
 #STATIC_ROOT = "/home/cfedeploy/webapps/cfehome_static_root/"
 
-MEDIA_URL = "/media/"
+#MEDIA_URL = "/media/"
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", "media-root")
+#MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", "media-root")
 
 
 
